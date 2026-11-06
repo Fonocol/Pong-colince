@@ -1,12 +1,12 @@
 using UnityEngine;
-using TMPro;
+using TMPro; 
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private TextMeshProUGUI scoreTextPlayer1;
-    [SerializeField] private TextMeshProUGUI scoreTextPlayer2;
+    [SerializeField] private TextMeshPro scoreTextPlayer1;
+    [SerializeField] private TextMeshPro scoreTextPlayer2;
 
     private int scoreP1 = 0;
     private int scoreP2 = 0;
@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        UpdateUI();
     }
 
     public void AddScorePlayer1()
